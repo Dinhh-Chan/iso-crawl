@@ -35,22 +35,22 @@ def res():
     if choosen == 'Standards':
         driver.find_element(By.CSS_SELECTOR, f'label[for="{label_for_standards}"]').click()
         crawl_data()
-    elif choosen == 'Pages':
-        driver.find_element(By.CSS_SELECTOR, f'label[for="{label_for_Pages}"]').click()
-        crawl_data()
-    elif choosen =='News':
-        driver.find_element(By.CSS_SELECTOR, f'label[for="{label_for_news}"]').click()
-        crawl_data()
-    elif choosen == 'Publications':
-        driver.find_element(By.CSS_SELECTOR, f'label[for="{label_for_Publications}"]').click()
-        crawl_data()
-    elif choosen =='Committees':
-        driver.find_element(By.CSS_SELECTOR, f'label[for="{label_for_Committees}"]').click()
-        crawl_data()
+    # elif choosen == 'Pages':
+    #     driver.find_element(By.CSS_SELECTOR, f'label[for="{label_for_Pages}"]').click()
+    #     crawl_data()
+    # elif choosen =='News':
+    #     driver.find_element(By.CSS_SELECTOR, f'label[for="{label_for_news}"]').click()
+    #     crawl_data()
+    # elif choosen == 'Publications':
+    #     driver.find_element(By.CSS_SELECTOR, f'label[for="{label_for_Publications}"]').click()
+    #     crawl_data()
+    # elif choosen =='Committees':
+    #     driver.find_element(By.CSS_SELECTOR, f'label[for="{label_for_Committees}"]').click()
+    #     crawl_data()
 def crawl_data():
     Last_page= int(driver.find_element(By.CLASS_NAME, 'total').text)
     for page in range(1,Last_page):
-        data = pd.DataFrame(columns=(['Link','Main title','Abstract', 'General informarion', 'Link read sample','File Reac sample' ]))
+        data = pd.DataFrame(columns=(['Link','Main title','Abstract', 'General informarion', 'Link read sample','File Read sample' ]))
         div_get_link= driver.find_element(By.ID, 'search-results')
         a_tag_link = div_get_link.find_elements(By.TAG_NAME,'a')
         arr_link=[]
